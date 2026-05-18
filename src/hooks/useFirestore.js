@@ -4,14 +4,16 @@ import { db } from '../firebase';
 
 export function useFirestore(user) {
   const [goals, setGoalsState] = useState([]);
-  const [checklist, setChecklistState] = useState({ date: null, tasks: [] });
+  const [checklist, setChecklistState] = useState(null);
   const [history, setHistoryState] = useState([]);
+  const [loadingData, setLoadingData] = useState(true);
 
   useEffect(() => {
     if (!user) {
       setGoalsState([]);
-      setChecklistState({ date: null, tasks: [] });
+      setChecklistState(null);
       setHistoryState([]);
+      setLoadingData(false);
       return;
     }
 
@@ -22,6 +24,7 @@ export function useFirestore(user) {
         const data = docSnap.data();
         if (data.goals) setGoalsState(data.goals);
         if (data.checklist) setChecklistState(data.checklist);
+        else setChecklistState({ date: null, tasks: [] });
         if (data.history) setHistoryState(data.history);
       } else {
         // Initialize empty document for new user
@@ -30,7 +33,9 @@ export function useFirestore(user) {
           checklist: { date: null, tasks: [] },
           history: []
         });
+        setChecklistState({ date: null, tasks: [] });
       }
+      setLoadingData(false);
     });
 
     return () => unsubscribe();
@@ -61,6 +66,7 @@ export function useFirestore(user) {
   return {
     goals, setGoals,
     checklist, setChecklist,
-    history, setHistory
+    history, setHistory,
+    loadingData
   };
 }

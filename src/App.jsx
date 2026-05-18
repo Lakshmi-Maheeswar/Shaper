@@ -25,7 +25,8 @@ export default function App() {
   const { 
     goals, setGoals, 
     checklist, setChecklist, 
-    history, setHistory 
+    history, setHistory,
+    loadingData
   } = useFirestore(user);
 
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
@@ -92,7 +93,7 @@ export default function App() {
     }
   };
 
-  if (loading) {
+  if (loading || (user && loadingData && currentView !== 'setup-password')) {
     return <div className="app-container"><div style={{padding: '50px', textAlign: 'center'}}>Loading...</div></div>;
   }
 

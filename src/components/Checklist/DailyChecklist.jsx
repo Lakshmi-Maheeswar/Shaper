@@ -10,16 +10,18 @@ export default function DailyChecklist({ checklist, setChecklist, onDayClose }) 
 
   // Handle day change in an effect to avoid updating state during render
   useEffect(() => {
+    if (!checklist) return;
+    
     if (checklist.date && checklist.date !== today) {
       onDayClose(checklist);
       setChecklist({ date: today, tasks: [] });
     } else if (!checklist.date) {
       setChecklist({ date: today, tasks: [] });
     }
-  }, [today]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [today, checklist, onDayClose, setChecklist]); 
 
   // Don't render until the date is set to today
-  if (checklist.date !== today) return null;
+  if (!checklist || checklist.date !== today) return null;
 
   const addTask = () => {
     const text = newTask.trim();
