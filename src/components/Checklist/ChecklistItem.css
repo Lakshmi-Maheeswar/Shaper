@@ -1,0 +1,78 @@
+.cl-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  transition: background var(--transition-fast);
+}
+.cl-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cl-check {
+  background: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--text-dim);
+  transition: all var(--transition-fast);
+}
+.cl-check:hover {
+  transform: scale(1.15);
+}
+.cl-done .cl-check {
+  color: var(--accent-green);
+}
+
+.cl-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  line-height: 1.4;
+}
+.cl-done .cl-text {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+/* Badge */
+.cl-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+.badge-done {
+  background: var(--accent-green-soft);
+  color: var(--accent-green);
+}
+.badge-pending {
+  background: var(--accent-amber-soft);
+  color: var(--accent-amber);
+}
+
+.cl-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: none;
+  color: var(--text-dim);
+  opacity: 0;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+.cl-item:hover .cl-remove {
+  opacity: 1;
+}
+.cl-remove:hover {
+  background: var(--accent-red-soft);
+  color: var(--accent-red);
+}

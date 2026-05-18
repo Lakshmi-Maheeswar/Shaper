@@ -1,0 +1,155 @@
+.goal-detail {
+  padding-top: 14px;
+}
+
+.goal-detail-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Step list */
+.step-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.step-item {
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.step-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.step-content-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+}
+
+.step-check-btn {
+  background: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+.step-check-btn:hover {
+  transform: scale(1.15);
+}
+
+.step-text {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  transition: all var(--transition-fast);
+}
+.step-item.done .step-text {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+.step-actions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.step-item:hover .step-actions {
+  opacity: 1;
+}
+
+.icon-btn-sm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+}
+.icon-btn-sm:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+.icon-btn-sm.icon-btn-danger:hover {
+  background: var(--accent-red-soft);
+  color: var(--accent-red);
+}
+
+.icon-btn-success:hover {
+  background: var(--accent-green-soft) !important;
+  color: var(--accent-green) !important;
+}
+
+/* Edit row */
+.step-edit-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+}
+.step-edit-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-glass-hover);
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+}
+.step-edit-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 2px var(--accent-cyan-soft);
+}
+
+/* Add step */
+.step-add-row {
+  display: flex;
+  gap: 8px;
+}
+.step-add-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  transition: border-color var(--transition-fast);
+}
+.step-add-input:focus {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 2px var(--accent-purple-soft);
+}
+.step-add-input::placeholder {
+  color: var(--text-dim);
+}
+.step-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+.step-add-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}

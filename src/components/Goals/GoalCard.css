@@ -1,0 +1,105 @@
+.goal-card {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+.goal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--card-glow, rgba(168, 85, 247, 0.15));
+}
+.goal-card.expanded {
+  box-shadow: 0 8px 30px var(--card-glow, rgba(168, 85, 247, 0.15));
+}
+
+.goal-card-accent {
+  height: 3px;
+  width: 100%;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.goal-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.goal-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.goal-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goal-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Icon buttons */
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+.icon-btn-danger:hover {
+  background: var(--accent-red-soft);
+  color: var(--accent-red);
+}
+
+/* Progress bar */
+.goal-progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 18px 12px;
+}
+.goal-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.goal-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.goal-progress-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Detail wrapper */
+.goal-detail-wrapper {
+  padding: 0 18px 18px;
+  border-top: 1px solid var(--border-glass);
+}
